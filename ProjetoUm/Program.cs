@@ -265,6 +265,19 @@ while (continuar)
       }
       
       Console.WriteLine($"{infoUpper} alterado com sucesso.");
+      
+      var lidos = context.Lido.ToList();
+      
+      if (string.IsNullOrEmpty(bookName) == false)
+      {
+          lidos = lidos.Where(book => book.Name == bookName).ToList();
+      }
+      foreach (var l in lidos)
+      {
+          Console.WriteLine("--------------------");
+          Console.WriteLine($"Nome do livro: {l.Name}\nAutor: {l.Author}\nNúmero de páginas: {l.Pages}\nSinopse: {l.Synopsis}");
+          Console.WriteLine("--------------------");
+      }
       Console.ReadLine();
   }
 
@@ -325,6 +338,18 @@ while (continuar)
       }
       
       Console.WriteLine($"{infoUpper} alterado com sucesso.");
+      var lerei = context.Lerei.ToList();
+      
+      if (string.IsNullOrEmpty(bookName) == false)
+      {
+          lerei = lerei.Where(book => book.Name == bookName).ToList();
+      }
+      foreach (var l in lerei)
+      {
+          Console.WriteLine("--------------------");
+          Console.WriteLine($"Nome do livro: {l.Name}\nAutor: {l.Author}\nNúmero de páginas: {l.Pages}\nSinopse: {l.Synopsis}");
+          Console.WriteLine("--------------------");
+      }
       Console.ReadLine();
   }
 
